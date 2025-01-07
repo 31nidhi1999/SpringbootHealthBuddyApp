@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
@@ -66,16 +67,16 @@ public class HospitalServiceImpl implements HospitalService {
 	public ApiResponse removeHospital(Long hospId) {
 		
 		Hospital hospital = hospitalRepository.findById(hospId)
-		.orElseThrow(()->new ResourceNotFoundException("Doctor",hospId));
+		.orElseThrow(()->new ResourceNotFoundException("Doctor",hospId,HttpStatus.NOT_FOUND));
 		hospital.setIsActive(false);
 		
-		return new ApiResponse(hospId +" is removed");
+		return new ApiResponse(hospId +" Deactivated");
 	}
 	
 	@Override
 	public ApiResponse activateHospital(Long hospId) {
 		hospitalRepository.findById(hospId)
-		.orElseThrow(()->new ResourceNotFoundException("Doctor",hospId))
+		.orElseThrow(()->new ResourceNotFoundException("Doctor",hospId,HttpStatus.NOT_FOUND))
 		.setIsActive(true);;
 		return new ApiResponse(hospId +"is activated");
 	}
