@@ -45,6 +45,7 @@ public class HospitalController {
 		return ResponseEntity.status(HttpStatus.OK).body(allHospital);
 	} 
 	
+	
 	@GetMapping("/active")
 	public ResponseEntity<?> getActiveHospital(){
 		List<HospitalResDto> allHospital = hospitalService.getActiveHospital();
