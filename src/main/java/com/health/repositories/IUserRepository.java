@@ -1,4 +1,4 @@
-package com.health.services.implementation;
+package com.health.repositories;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

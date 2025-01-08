@@ -15,7 +15,8 @@ import com.health.dto.response.DoctorResDto;
 import com.health.entities.Doctor;
 import com.health.entities.User;
 import com.health.entities.UserRole;
-import com.health.repositories.IHospitalRepository;
+import com.health.repositories.IDoctorRepository;
+import com.health.repositories.IUserRepository;
 import com.health.services.IDoctorService;
 
 import jakarta.transaction.Transactional;
